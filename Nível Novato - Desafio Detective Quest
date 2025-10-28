@@ -1,0 +1,17 @@
+Sala* criarSala(const char* nome) {
+    // Alocação dinâmica: uso de malloc para criação de nós da árvore.
+    Sala* novaSala = (Sala*)malloc(sizeof(Sala)); // Variável declarada
+
+    if (novaSala == NULL) {
+        perror("Falha na alocação de memória para nova sala.");
+        exit(EXIT_FAILURE);
+    }
+    
+    // Inicialização - USANDO 'novaSala'
+    strncpy(novaSala->nome, nome, sizeof(novaSala->nome) - 1);
+    novaSala->nome[sizeof(novaSala->nome) - 1] = '\0';
+    novaSala->esquerda = NULL;  // CORRIGIDO AQUI
+    novaSala->direita = NULL;   // CORRIGIDO AQUI
+    
+    return novaSala;
+}
